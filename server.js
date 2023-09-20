@@ -9,6 +9,7 @@ const path = require("path");
 const whitelist = [
   "http://localhost:3000",
   "https://frontend-final-project.onrender.com",
+  "https://gist-0ipg.onrender.com",
 ];
 const corsConfig = {
   credentials: true, // This is important.
