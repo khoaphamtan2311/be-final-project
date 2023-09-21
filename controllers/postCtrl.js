@@ -187,6 +187,7 @@ const postCtrl = {
   },
   getPostsDicover: async (req, res) => {
     try {
+      console.log(req.user);
       const newArr = [...req.user.following, req.user._id];
 
       const num = req.query.num || 9;
