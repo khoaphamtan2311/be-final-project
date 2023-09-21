@@ -36,10 +36,17 @@ const authCtrl = {
       const access_token = createAccessToken({ id: newUser._id });
       const refresh_token = createRefreshToken({ id: newUser._id });
 
+      // res.cookie("refreshtoken", refresh_token, {
+      //   httpOnly: false,
+      //   path: "/api/refresh_token",
+      //   maxAge: 30 * 24 * 60 * 60 * 1000, // 30days
+      // });
+
       res.cookie("refreshtoken", refresh_token, {
-        httpOnly: false,
-        path: "/api/refresh_token",
+        httpOnly: true,
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30days
+        sameSite: "none",
+        secure: true,
       });
 
       await newUser.save();
@@ -75,9 +82,10 @@ const authCtrl = {
       const refresh_token = createRefreshToken({ id: user._id });
 
       res.cookie("refreshtoken", refresh_token, {
-        httpOnly: false,
-        path: "/api/refresh_token",
+        httpOnly: true,
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30days
+        sameSite: "none",
+        secure: true,
       });
 
       res.json({
@@ -119,11 +127,11 @@ const authCtrl = {
 
       const access_token = createAccessToken({ id: user._id });
       const refresh_token = createRefreshToken({ id: user._id });
-
       res.cookie("refreshtoken", refresh_token, {
-        httpOnly: false,
-        path: "/api/refresh_token",
+        httpOnly: true,
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30days
+        sameSite: "none",
+        secure: true,
       });
       await Users.updateOne({ email }, { tokenResetPassword: access_token });
 
