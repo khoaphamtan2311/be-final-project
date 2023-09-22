@@ -34,10 +34,40 @@ router.patch(
   commentCtrl.updateComment
 );
 
-router.patch("/comment/:id/like", auth, commentCtrl.likeComment);
+router.patch(
+  "/comment/:id/like",
+  auth,
+  validators.validate([
+    param("id", "Invalid Id")
+      .exists()
+      .isString()
+      .custom(validators.checkObjectId),
+  ]),
+  commentCtrl.likeComment
+);
 
-router.patch("/comment/:id/unlike", auth, commentCtrl.unLikeComment);
+router.patch(
+  "/comment/:id/unlike",
+  auth,
+  validators.validate([
+    param("id", "Invalid Id")
+      .exists()
+      .isString()
+      .custom(validators.checkObjectId),
+  ]),
+  commentCtrl.unLikeComment
+);
 
-router.delete("/comment/:id", auth, commentCtrl.deleteComment);
+router.delete(
+  "/comment/:id",
+  auth,
+  validators.validate([
+    param("id", "Invalid Id")
+      .exists()
+      .isString()
+      .custom(validators.checkObjectId),
+  ]),
+  commentCtrl.deleteComment
+);
 
 module.exports = router;

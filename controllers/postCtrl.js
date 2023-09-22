@@ -187,7 +187,6 @@ const postCtrl = {
   },
   getPostsDicover: async (req, res) => {
     try {
-      console.log(req.user);
       const newArr = [...req.user.following, req.user._id];
 
       const num = req.query.num || 9;
@@ -196,7 +195,6 @@ const postCtrl = {
         { $match: { user: { $nin: newArr } } },
         { $sample: { size: Number(num) } },
       ]);
-      console.log(posts);
       await Users.populate(posts, {
         path: "user",
       });

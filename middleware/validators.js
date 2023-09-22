@@ -11,7 +11,7 @@ validators.validate = (validationArray) => async (req, res, next) => {
     .array()
     .map((error) => error.msg)
     .join(" & ");
-  return res.statutus(422).json({ msg: { message } });
+  return res.status(422).json({ msg: { message } });
 };
 
 validators.checkObjectId = (paramId) => {
