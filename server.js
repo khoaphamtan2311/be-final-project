@@ -6,7 +6,11 @@ const cookieParser = require("cookie-parser");
 const SocketServer = require("./socketServer");
 const { ExpressPeerServer } = require("peer");
 const path = require("path");
-const whitelist = ["http://localhost:3000", "https://gist-0ipg.onrender.com"];
+const whitelist = [
+  "http://localhost:3000",
+  "https://gist-0ipg.onrender.com",
+  "https://main--resplendent-squirrel-fda737.netlify.app",
+];
 const corsConfig = {
   credentials: true, // This is important.
   origin: (origin, callback) => {
