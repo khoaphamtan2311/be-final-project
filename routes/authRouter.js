@@ -28,10 +28,7 @@ router.post(
       .exists()
       .isEmail()
       .normalizeEmail({ gmail_remove_dots: false }),
-    body("password", "Invalid password")
-      .exists()
-      .notEmpty()
-      .isLength({ min: 6 }),
+    body("password", "Invalid password").exists().notEmpty(),
   ]),
   authCtrl.login
 );
