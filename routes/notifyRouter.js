@@ -12,10 +12,6 @@ router.post(
       .exists()
       .isString()
       .custom(validators.checkObjectId),
-    body("url", "invalid url").isString(),
-    body("text", "invalid text").isString(),
-    body("content", "invalid content").isString(),
-    body("image", "invalid image").isString(),
   ]),
   notifyCtrl.createNotify
 );
