@@ -9,7 +9,7 @@ const path = require("path");
 const whitelist = [
   "http://localhost:3000",
   "https://gist-0ipg.onrender.com",
-  "https://resplendent-squirrel-fda737.netlify.app",
+  "https://gistonline.netlify.app",
 ];
 const corsConfig = {
   credentials: true, // This is important.
